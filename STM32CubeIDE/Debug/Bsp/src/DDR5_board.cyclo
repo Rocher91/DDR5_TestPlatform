@@ -1,0 +1,5 @@
+../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usart.h:3024:26:LL_USART_IsActiveFlag_TXE_TXFNF	2
+../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_ll_usart.h:4275:22:LL_USART_TransmitData8	1
+../Bsp/src/DDR5_board.c:9:12:DDR5_UART_WaitFlagSet	3
+../Bsp/src/DDR5_board.c:22:5:DDR5_UART_WriteByte	3
+../Bsp/src/DDR5_board.c:37:5:DDR5_UART_WriteString	5

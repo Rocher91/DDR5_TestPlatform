@@ -1,0 +1,7 @@
+../Bsp/src/DDR5_I3C.c:8:26:SPD_SelectPage	1
+../Bsp/src/DDR5_I3C.c:17:19:SPD_ReadReg	2
+../Bsp/src/DDR5_I3C.c:30:19:SPD_WriteReg	1
+../Bsp/src/DDR5_I3C.c:40:19:SPD_ReadBlock	7
+../Bsp/src/DDR5_I3C.c:89:19:SPD_EnterI3C	1
+../Bsp/src/DDR5_I3C.c:98:19:SPD_ExitI3C	1
+../Bsp/src/DDR5_I3C.c:105:19:SPD_ReadTemperature	4

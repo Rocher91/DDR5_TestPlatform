@@ -1,0 +1,9 @@
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:84:5:main	5
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:191:6:SystemClock_Config	4
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:246:13:MX_I2C1_Init	4
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:294:13:MX_I3C1_Init	4
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:370:13:MX_ICACHE_Init	2
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:398:13:MX_MEMORYMAP_Init	1
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:419:13:MX_USART3_UART_Init	5
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:468:13:MX_GPIO_Init	1
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c:603:6:Error_Handler	1

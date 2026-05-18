@@ -1,0 +1,5 @@
+../Bsp/src/DDR5_Time.c:20:6:DDR5_Time_IncTick	4	static
+../Bsp/src/DDR5_Time.c:34:10:DDR5_GetTick	4	static
+../Bsp/src/DDR5_Time.c:48:6:DDR5_Delay_ms	24	static
+../Bsp/src/DDR5_Time.c:70:6:DDR5_Timeout_Start	16	static
+../Bsp/src/DDR5_Time.c:90:9:DDR5_Timeout_Expired	16	static
