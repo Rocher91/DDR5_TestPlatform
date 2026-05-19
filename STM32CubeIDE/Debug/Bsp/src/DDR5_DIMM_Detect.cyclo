@@ -2,4 +2,4 @@
 ../Bsp/src/DDR5_DIMM_Detect.c:13:13:DDR5_Read_Regs_0_127	3
 ../Bsp/src/DDR5_DIMM_Detect.c:27:16:DDR5_FindPMIC	6
 ../Bsp/src/DDR5_DIMM_Detect.c:58:6:DDR5_DIMM_Table_Init	3
-../Bsp/src/DDR5_DIMM_Detect.c:75:6:DDR5_DIMM_CheckAll	14
+../Bsp/src/DDR5_DIMM_Detect.c:75:6:DDR5_DIMM_CheckAll	13

@@ -1,0 +1,8 @@
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_board.h:336:23:DDR5_ButtonPressed	16	static
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_board.h:351:23:DDR5_LEFTButtonPressed	8	static
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_board.h:356:23:DDR5_RIGHTButtonPressed	8	static
+../Bsp/src/DDR5_LCD_DIMM.c:14:20:DDR5_ACK_String	16	static
+../Bsp/src/DDR5_LCD_DIMM.c:19:13:DDR5_LCD_WriteLine20	48	static
+../Bsp/src/DDR5_LCD_DIMM.c:45:6:DDR5_LCD_DIMM_Init	16	static
+../Bsp/src/DDR5_LCD_DIMM.c:67:6:DDR5_LCD_DIMM_ShowPage	72	static
+../Bsp/src/DDR5_LCD_DIMM.c:116:6:DDR5_LCD_DIMM_FSM_Update	8	static

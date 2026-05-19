@@ -153,8 +153,8 @@ void DDR5_DIMM_CheckAll(I2C_TypeDef *I2Cx,
         if ((dimm->SPD_Ack  == 1U) &&
             (dimm->TS0_Ack  == 1U) &&
             (dimm->TS1_Ack  == 1U) &&
-            (dimm->PMIC_Ack == 1U) &&
-            (dimm->RCD_Ack  == 1U))
+            (dimm->PMIC_Ack == 1U)) //&&
+            //(dimm->RCD_Ack  == 1U))
         {
             dimm->DIMM_Status = 1U;
         }

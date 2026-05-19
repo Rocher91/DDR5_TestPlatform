@@ -24,10 +24,17 @@ static void DDR5_LCD_WriteLine20(nhd0420_t *lcd,
 
     for (uint8_t i = 0; i < 20U; i++)
     {
+        char c = ' ';
+
         if ((text != NULL) && (text[i] != '\0'))
-            line[i] = text[i];
-        else
-            line[i] = ' ';
+        {
+            c = text[i];
+
+            if ((c < 0x20) || (c > 0x7E))
+                c = ' ';
+        }
+
+        line[i] = c;
     }
 
     line[20] = '\0';
@@ -43,12 +50,16 @@ void DDR5_LCD_DIMM_Init(nhd0420_t *lcd,
     g_lcd_page = 0U;
 
     nhd0420_clear(g_lcd);
-    DDR5_Delay_ms(20);
+    DDR5_Delay_ms(50);
 
-    DDR5_LCD_WriteLine20(g_lcd, 0, "DDR5 Platform");
-    DDR5_LCD_WriteLine20(g_lcd, 1, "DIMM Scanner");
-    DDR5_LCD_WriteLine20(g_lcd, 2, BOARD_NAME);
-    DDR5_Delay_ms(1500);
+    DDR5_LCD_WriteLine20(g_lcd, 0, "DDR5 Platform Test  ");
+    HAL_Delay(20);
+    DDR5_LCD_WriteLine20(g_lcd, 1, "DIMM Scanner        ");
+    DDR5_LCD_WriteLine20(g_lcd, 2, "Xavier Rocher      ");
+    DDR5_LCD_WriteLine20(g_lcd, 3, "                    ");
+
+    DDR5_Delay_ms(2500);
+    nhd0420_clear(g_lcd);
 
     DDR5_LCD_DIMM_ShowPage(g_lcd_page);
 }
@@ -108,14 +119,14 @@ void DDR5_LCD_DIMM_FSM_Update(void)
         return;
 
     /*
-     * BUTTON UP
+     * BUTTON RIGHT
      */
 
-    if (DDR5_UPButtonPressed())
+    if (DDR5_RIGHTButtonPressed())
     {
         DDR5_Delay_ms(150);
 
-        if (DDR5_UPButtonPressed())
+        if (DDR5_RIGHTButtonPressed())
         {
             if (g_lcd_page < (DDR5_LCD_DIMM_COUNT - 1U))
                 g_lcd_page++;
@@ -124,21 +135,21 @@ void DDR5_LCD_DIMM_FSM_Update(void)
 
             DDR5_LCD_DIMM_ShowPage(g_lcd_page);
 
-            while (DDR5_UPButtonPressed())
+            while (DDR5_RIGHTButtonPressed())
             {
             }
         }
     }
 
     /*
-     * BUTTON DOWN
+     * BUTTON LEFT
      */
 
-    if (DDR5_DOWNButtonPressed())
+    if (DDR5_LEFTButtonPressed())
     {
         DDR5_Delay_ms(150);
 
-        if (DDR5_DOWNButtonPressed())
+        if (DDR5_LEFTButtonPressed())
         {
             if (g_lcd_page > 0U)
                 g_lcd_page--;
@@ -147,7 +158,7 @@ void DDR5_LCD_DIMM_FSM_Update(void)
 
             DDR5_LCD_DIMM_ShowPage(g_lcd_page);
 
-            while (DDR5_DOWNButtonPressed())
+            while (DDR5_LEFTButtonPressed())
             {
             }
         }

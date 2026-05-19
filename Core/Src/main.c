@@ -112,63 +112,46 @@ int main(void)
   MX_MEMORYMAP_Init();
   /* USER CODE BEGIN 2 */
 
-  __attribute__((aligned(4))) uint8_t value[16] = {0};
-
   /* ------------------------------------------------ */
   /* I2C legacy read antes de SETAASA                 */
   /* ------------------------------------------------ */
+  DDR5_UART_WriteString(USART3, "DDR5 DIMM detection start\r\n", 100000U);
 
   if (nhd0420_init(&g_lcd, &hi2c1, 0x28U, DDR5_Delay_ms) != 0)
   {
       DDR5_UART_WriteString(USART3, "LCD init FAIL\r\n", 100000U);
   }
 
-  DDR5_DIMM_Table_Init(&g_dimm_table);
-  DDR5_DIMM_CheckAll(I2C1, &g_dimm_table);
+  nhd0420_clear(&g_lcd);
+  LED_RUN_ON();
 
-  DDR5_LCD_DIMM_Init(&g_lcd, &g_dimm_table);
+  PWR_ENABLE_0_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_1_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_2_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_3_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_4_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_5_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_6_ON();
+  HAL_Delay(50);
+  PWR_ENABLE_7_ON();
 
   nhd0420_clear(&g_lcd);
-  HAL_Delay(20);
-
-  nhd0420_write_line_20(&g_lcd, 0, "DDR5 Platform Test");
-  HAL_Delay(20);
-
-  nhd0420_write_line_20(&g_lcd, 1, "Xavier Rocher       ");
-  HAL_Delay(20);
-
-  nhd0420_write_line_20(&g_lcd, 2, "                    ");
-  nhd0420_write_line_20(&g_lcd, 3, "                    ");
-
-  DDR5_UART_WriteString(USART3, "DDR5 DIMM detection start\r\n", 100000U);
-
-  if (I3C_LL_I2C_PrivateReadReg(0x50, 0x00, value, 1) != HAL_OK)
-  {
-
-      Error_Handler();
-  }
+  DDR5_DIMM_Table_Init(&g_dimm_table);
+  DDR5_DIMM_CheckAll(I2C1, &g_dimm_table);
+  DDR5_LCD_DIMM_Init(&g_lcd, &g_dimm_table);
+  HAL_Delay(2000);
 
 
-  /* ------------------------------------------------ */
-  /* SETAASA -> entrar en I3C Basic                   */
-  /* ------------------------------------------------ */
 
 
-  __attribute__((aligned(4))) uint8_t spd_byte = 0;
 
-  if (SPD_ReadReg(0x50, 0x00, &spd_byte) != HAL_OK)
-  {
-      Error_Handler();
-  }
 
-  SPD_EnterI3C(0x50);
-
-  if (I3C_LL_PrivateReadReg(0x50, 0x00, &spd_byte, 1) != HAL_OK)
-  {
-      Error_Handler();
-  }
-
-  SPD_ExitI3C();
 
   __NOP();
   /* USER CODE END 2 */
