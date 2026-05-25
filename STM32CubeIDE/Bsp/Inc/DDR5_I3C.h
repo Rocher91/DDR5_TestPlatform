@@ -16,12 +16,15 @@
 
 void Error_Handler(void);
 
-void I3C_SETHID(uint8_t hid);
+void I3C_SETHID(void);
 void I3C_SETAASA(void);
 void I3C_RSTDAA(void);
 HAL_StatusTypeDef I3C_LL_I2C_PrivateReadReg(uint8_t target,uint8_t reg,uint8_t *rx,uint16_t len);
 HAL_StatusTypeDef I3C_LL_I2C_PrivateWriteReg(uint8_t target,uint8_t reg,const uint8_t *tx,uint16_t len);
 HAL_StatusTypeDef I3C_LL_PrivateReadReg(uint8_t target,uint8_t reg,uint8_t *rx,uint16_t len);
 HAL_StatusTypeDef I3C_LL_PrivateWriteReg(uint8_t target,uint8_t reg,const uint8_t *tx,uint16_t len);
+HAL_StatusTypeDef I3C_SETAASA_Status(void);
+HAL_StatusTypeDef I3C_RSTDAA_Status(void);
+HAL_StatusTypeDef I3C_SETHID_Status(void);
 
 #endif /* BSP_INC_DDR5_I3C_H_ */

@@ -9,76 +9,20 @@
 
 extern I3C_HandleTypeDef hi3c1;
 
-void I3C_SETAASA(void)
+
+
+void I3C_SETHID(void)
 {
-	I3C_XferTypeDef I3C_Context;
-	  uint32_t I3C_ControlBuffer[1];
-	  uint8_t dummyTx[1];
-
-
-	  I3C_CCCTypeDef SETAASA_Desc = {
-	    0x00,
-	    0x29,
-	    {NULL, 0},
-	    LL_I3C_DIRECTION_WRITE
-	  };
-
-	  I3C_Context.CtrlBuf.pBuffer = I3C_ControlBuffer;
-	  I3C_Context.CtrlBuf.Size = 1;
-	  I3C_Context.TxBuf.pBuffer = dummyTx;
-	  I3C_Context.TxBuf.Size = 0;
-	  I3C_Context.RxBuf.pBuffer = NULL;
-	  I3C_Context.RxBuf.Size = 0;
-
-	  if ( HAL_I3C_AddDescToFrame(&hi3c1,
-	                         &SETAASA_Desc,
-	                         NULL,
-	                         &I3C_Context,
-	                         1,
-							 I3C_BROADCAST_WITHOUT_DEFBYTE_STOP)!= HAL_OK)
-		  Error_Handler();
-
-	  if ( HAL_I3C_Ctrl_TransmitCCC(&hi3c1, &I3C_Context, HAL_MAX_DELAY)!= HAL_OK )
-	  {
-		  Error_Handler();
-	  }
-
+	(void)I3C_SETHID_Status();
 }
-
 void I3C_RSTDAA(void)
 {
-	I3C_XferTypeDef I3C_Context;
-	  uint32_t I3C_ControlBuffer[1];
-	  uint8_t dummyTx[1];
+	(void)I3C_RSTDAA_Status();
+}
 
-
-	  I3C_CCCTypeDef SETAASA_Desc = {
-	    0x00,
-	    0x06,
-	    {NULL, 0},
-	    LL_I3C_DIRECTION_WRITE
-	  };
-
-	  I3C_Context.CtrlBuf.pBuffer = I3C_ControlBuffer;
-	  I3C_Context.CtrlBuf.Size = 1;
-	  I3C_Context.TxBuf.pBuffer = dummyTx;
-	  I3C_Context.TxBuf.Size = 0;
-	  I3C_Context.RxBuf.pBuffer = NULL;
-	  I3C_Context.RxBuf.Size = 0;
-
-	  if ( HAL_I3C_AddDescToFrame(&hi3c1,
-	                         &SETAASA_Desc,
-	                         NULL,
-	                         &I3C_Context,
-	                         1,
-							 I3C_BROADCAST_WITHOUT_DEFBYTE_STOP)!= HAL_OK)
-		  Error_Handler();
-
-	  if ( HAL_I3C_Ctrl_TransmitCCC(&hi3c1, &I3C_Context, HAL_MAX_DELAY)!= HAL_OK )
-	  {
-		  Error_Handler();
-	  }
-
+void I3C_SETAASA(void)
+{
+    (void)I3C_SETAASA_Status();
 }
 
 HAL_StatusTypeDef I3C_LL_I2C_PrivateReadReg(uint8_t target,
@@ -447,3 +391,127 @@ HAL_StatusTypeDef I3C_LL_PrivateReadReg(uint8_t target,
     return HAL_OK;
 }
 
+HAL_StatusTypeDef I3C_SETAASA_Status(void)
+{
+    I3C_XferTypeDef I3C_Context;
+    __attribute__((aligned(4))) uint32_t I3C_ControlBuffer[1];
+    __attribute__((aligned(4))) uint8_t dummyTx[4];
+
+    I3C_CCCTypeDef SETAASA_Desc =
+    {
+        0x00,
+        0x29,
+        {NULL, 0},
+        LL_I3C_DIRECTION_WRITE
+    };
+
+    I3C_Context.CtrlBuf.pBuffer = I3C_ControlBuffer;
+    I3C_Context.CtrlBuf.Size = 1;
+    I3C_Context.TxBuf.pBuffer = dummyTx;
+    I3C_Context.TxBuf.Size = 0;
+    I3C_Context.RxBuf.pBuffer = NULL;
+    I3C_Context.RxBuf.Size = 0;
+
+    if (HAL_I3C_AddDescToFrame(&hi3c1,
+                               &SETAASA_Desc,
+                               NULL,
+                               &I3C_Context,
+                               1,
+                               I3C_BROADCAST_WITHOUT_DEFBYTE_STOP) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    return HAL_I3C_Ctrl_TransmitCCC(&hi3c1,
+                                    &I3C_Context,
+                                    1000);
+}
+
+HAL_StatusTypeDef I3C_RSTDAA_Status(void)
+{
+    I3C_XferTypeDef I3C_Context;
+
+    __attribute__((aligned(4))) uint32_t I3C_ControlBuffer[1];
+    __attribute__((aligned(4))) uint8_t dummyTx[1];
+
+    /*
+     * Broadcast CCC:
+     * RSTDAA = 0x06
+     */
+    I3C_CCCTypeDef RSTDAA_Desc =
+    {
+        0x00,
+        0x06,
+        {NULL, 0},
+        LL_I3C_DIRECTION_WRITE
+    };
+
+    I3C_Context.CtrlBuf.pBuffer = I3C_ControlBuffer;
+    I3C_Context.CtrlBuf.Size    = 1;
+
+    I3C_Context.TxBuf.pBuffer   = dummyTx;
+    I3C_Context.TxBuf.Size      = 0;
+
+    I3C_Context.RxBuf.pBuffer   = NULL;
+    I3C_Context.RxBuf.Size      = 0;
+
+    if (HAL_I3C_AddDescToFrame(&hi3c1,
+                               &RSTDAA_Desc,
+                               NULL,
+                               &I3C_Context,
+                               1,
+                               I3C_BROADCAST_WITHOUT_DEFBYTE_STOP) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    return HAL_I3C_Ctrl_TransmitCCC(&hi3c1,
+                                    &I3C_Context,
+                                    1000);
+}
+
+HAL_StatusTypeDef I3C_SETHID_Status()
+{
+    I3C_XferTypeDef I3C_Context;
+
+    __attribute__((aligned(4))) uint32_t I3C_ControlBuffer[1];
+    __attribute__((aligned(4))) uint8_t txBuf[1];
+
+    /*
+     * SETHID CCC:
+     * Broadcast CCC = 0x61
+     * Payload       = HID byte
+     */
+    txBuf[0] = 0x00;
+
+    I3C_CCCTypeDef SETHID_Desc =
+    {
+        0x00,
+        0x61,
+        {txBuf, 1},
+        LL_I3C_DIRECTION_WRITE
+    };
+
+    I3C_Context.CtrlBuf.pBuffer = I3C_ControlBuffer;
+    I3C_Context.CtrlBuf.Size    = 1;
+
+    I3C_Context.TxBuf.pBuffer   = txBuf;
+    I3C_Context.TxBuf.Size      = 1;
+
+    I3C_Context.RxBuf.pBuffer   = NULL;
+    I3C_Context.RxBuf.Size      = 0;
+
+    if (HAL_I3C_AddDescToFrame(&hi3c1,
+                               &SETHID_Desc,
+                               NULL,
+                               &I3C_Context,
+                               1,
+                               I3C_BROADCAST_WITHOUT_DEFBYTE_STOP) != HAL_OK)
+    {
+        return HAL_ERROR;
+    }
+
+    return HAL_I3C_Ctrl_TransmitCCC(&hi3c1,
+                                    &I3C_Context,
+                                    1000);
+}

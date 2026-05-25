@@ -9,6 +9,7 @@
 "./Bsp/src/DDR5_LCD_DIMM.o"
 "./Bsp/src/DDR5_SPD.o"
 "./Bsp/src/DDR5_Time.o"
+"./Bsp/src/DDR5_UI_Menu.o"
 "./Bsp/src/DDR5_board.o"
 "./Bsp/src/nhd0420_i2c.o"
 "./Drivers/CMSIS/system_stm32h5xx.o"

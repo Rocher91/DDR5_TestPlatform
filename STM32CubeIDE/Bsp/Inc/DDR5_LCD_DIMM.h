@@ -10,5 +10,7 @@ void DDR5_LCD_DIMM_Init(nhd0420_t *lcd,
 void DDR5_LCD_DIMM_ShowPage(uint8_t page);
 
 void DDR5_LCD_DIMM_FSM_Update(void);
+void DDR5_LCD_DIMM_NextPage(void);
+void DDR5_LCD_DIMM_PreviousPage(void);
 
 #endif

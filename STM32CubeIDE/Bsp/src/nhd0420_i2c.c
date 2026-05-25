@@ -42,6 +42,7 @@ static int nhd0420_send_cmd1(nhd0420_t *lcd, uint8_t cmd, uint8_t p1)
 static uint8_t nhd0420_rowcol_to_pos(uint8_t row, uint8_t col)
 {
     static const uint8_t row_base[4] = { 0x00U, 0x40U, 0x14U, 0x54U };
+    //static const uint8_t row_base[4] = { 0U, 20U, 40U, 60U };
     return (uint8_t)(row_base[row] + col);
 }
 
@@ -112,6 +113,9 @@ int nhd0420_write_char(nhd0420_t *lcd, char c)
 {
     uint8_t buf[1];
 
+    if (lcd == NULL)
+        return NHD0420_ERR_PARAM;
+
     buf[0] = (uint8_t)c;
 
     if (HAL_I2C_Master_Transmit(lcd->hi2c,
@@ -123,11 +127,11 @@ int nhd0420_write_char(nhd0420_t *lcd, char c)
         return NHD0420_ERR_I2C;
     }
 
-    HAL_Delay(2);
+    if (lcd->delay_ms != NULL)
+        lcd->delay_ms(2);
 
     return NHD0420_OK;
 }
-
 int nhd0420_write_data(nhd0420_t *lcd, const uint8_t *data, size_t len)
 {
     if ((lcd == NULL) || (data == NULL) || (len == 0U))
@@ -169,16 +173,14 @@ int nhd0420_write_line(nhd0420_t *lcd, uint8_t row, const char *s)
     if (rc != NHD0420_OK)
         return rc;
 
-    HAL_Delay(5);
-
-    for (uint8_t i = 0; i < 20; i++)
+    for (uint8_t col = 0; col < 20U; col++)
     {
-        char c = ' ';
+        char ch = ' ';
 
-        if ((s != NULL) && (s[i] != '\0'))
-            c = s[i];
+        if ((s != NULL) && (s[col] != '\0'))
+            ch = s[col];
 
-        rc = nhd0420_write_char(lcd, c);
+        rc = nhd0420_write_char(lcd, ch);
 
         if (rc != NHD0420_OK)
             return rc;

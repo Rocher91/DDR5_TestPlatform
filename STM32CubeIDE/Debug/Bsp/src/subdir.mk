@@ -10,6 +10,7 @@ C_SRCS += \
 ../Bsp/src/DDR5_LCD_DIMM.c \
 ../Bsp/src/DDR5_SPD.c \
 ../Bsp/src/DDR5_Time.c \
+../Bsp/src/DDR5_UI_Menu.c \
 ../Bsp/src/DDR5_board.c \
 ../Bsp/src/nhd0420_i2c.c 
 
@@ -19,6 +20,7 @@ OBJS += \
 ./Bsp/src/DDR5_LCD_DIMM.o \
 ./Bsp/src/DDR5_SPD.o \
 ./Bsp/src/DDR5_Time.o \
+./Bsp/src/DDR5_UI_Menu.o \
 ./Bsp/src/DDR5_board.o \
 ./Bsp/src/nhd0420_i2c.o 
 
@@ -28,6 +30,7 @@ C_DEPS += \
 ./Bsp/src/DDR5_LCD_DIMM.d \
 ./Bsp/src/DDR5_SPD.d \
 ./Bsp/src/DDR5_Time.d \
+./Bsp/src/DDR5_UI_Menu.d \
 ./Bsp/src/DDR5_board.d \
 ./Bsp/src/nhd0420_i2c.d 
 
@@ -39,7 +42,7 @@ Bsp/src/%.o Bsp/src/%.su Bsp/src/%.cyclo: ../Bsp/src/%.c Bsp/src/subdir.mk
 clean: clean-Bsp-2f-src
 
 clean-Bsp-2f-src:
-	-$(RM) ./Bsp/src/DDR5_DIMM_Detect.cyclo ./Bsp/src/DDR5_DIMM_Detect.d ./Bsp/src/DDR5_DIMM_Detect.o ./Bsp/src/DDR5_DIMM_Detect.su ./Bsp/src/DDR5_I3C.cyclo ./Bsp/src/DDR5_I3C.d ./Bsp/src/DDR5_I3C.o ./Bsp/src/DDR5_I3C.su ./Bsp/src/DDR5_LCD_DIMM.cyclo ./Bsp/src/DDR5_LCD_DIMM.d ./Bsp/src/DDR5_LCD_DIMM.o ./Bsp/src/DDR5_LCD_DIMM.su ./Bsp/src/DDR5_SPD.cyclo ./Bsp/src/DDR5_SPD.d ./Bsp/src/DDR5_SPD.o ./Bsp/src/DDR5_SPD.su ./Bsp/src/DDR5_Time.cyclo ./Bsp/src/DDR5_Time.d ./Bsp/src/DDR5_Time.o ./Bsp/src/DDR5_Time.su ./Bsp/src/DDR5_board.cyclo ./Bsp/src/DDR5_board.d ./Bsp/src/DDR5_board.o ./Bsp/src/DDR5_board.su ./Bsp/src/nhd0420_i2c.cyclo ./Bsp/src/nhd0420_i2c.d ./Bsp/src/nhd0420_i2c.o ./Bsp/src/nhd0420_i2c.su
+	-$(RM) ./Bsp/src/DDR5_DIMM_Detect.cyclo ./Bsp/src/DDR5_DIMM_Detect.d ./Bsp/src/DDR5_DIMM_Detect.o ./Bsp/src/DDR5_DIMM_Detect.su ./Bsp/src/DDR5_I3C.cyclo ./Bsp/src/DDR5_I3C.d ./Bsp/src/DDR5_I3C.o ./Bsp/src/DDR5_I3C.su ./Bsp/src/DDR5_LCD_DIMM.cyclo ./Bsp/src/DDR5_LCD_DIMM.d ./Bsp/src/DDR5_LCD_DIMM.o ./Bsp/src/DDR5_LCD_DIMM.su ./Bsp/src/DDR5_SPD.cyclo ./Bsp/src/DDR5_SPD.d ./Bsp/src/DDR5_SPD.o ./Bsp/src/DDR5_SPD.su ./Bsp/src/DDR5_Time.cyclo ./Bsp/src/DDR5_Time.d ./Bsp/src/DDR5_Time.o ./Bsp/src/DDR5_Time.su ./Bsp/src/DDR5_UI_Menu.cyclo ./Bsp/src/DDR5_UI_Menu.d ./Bsp/src/DDR5_UI_Menu.o ./Bsp/src/DDR5_UI_Menu.su ./Bsp/src/DDR5_board.cyclo ./Bsp/src/DDR5_board.d ./Bsp/src/DDR5_board.o ./Bsp/src/DDR5_board.su ./Bsp/src/nhd0420_i2c.cyclo ./Bsp/src/nhd0420_i2c.d ./Bsp/src/nhd0420_i2c.o ./Bsp/src/nhd0420_i2c.su
 
 .PHONY: clean-Bsp-2f-src
 

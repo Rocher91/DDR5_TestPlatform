@@ -164,3 +164,29 @@ void DDR5_LCD_DIMM_FSM_Update(void)
         }
     }
 }
+
+void DDR5_LCD_DIMM_NextPage(void)
+{
+    if ((g_lcd == NULL) || (g_table == NULL))
+        return;
+
+    if (g_lcd_page < (DDR5_LCD_DIMM_COUNT - 1U))
+        g_lcd_page++;
+    else
+        g_lcd_page = 0U;
+
+    DDR5_LCD_DIMM_ShowPage(g_lcd_page);
+}
+
+void DDR5_LCD_DIMM_PreviousPage(void)
+{
+    if ((g_lcd == NULL) || (g_table == NULL))
+        return;
+
+    if (g_lcd_page > 0U)
+        g_lcd_page--;
+    else
+        g_lcd_page = DDR5_LCD_DIMM_COUNT - 1U;
+
+    DDR5_LCD_DIMM_ShowPage(g_lcd_page);
+}

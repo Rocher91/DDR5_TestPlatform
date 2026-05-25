@@ -1,6 +1,6 @@
-Application/User/Core/main.o: \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/Core/Src/main.c \
- ../../Core/Inc/main.h \
+Bsp/src/DDR5_UI_Menu.o: ../Bsp/src/DDR5_UI_Menu.c \
+ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_UI_Menu.h \
+ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h \
  ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h \
  ../../Core/Inc/stm32h5xx_hal_conf.h \
  ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h \
@@ -32,16 +32,13 @@ Application/User/Core/main.o: \
  ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h \
  ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h \
  ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_I3C.h \
+ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_DIMM_Detect.h \
  C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_Board.h \
  C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_LCD_DIMM.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_DIMM_Detect.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_Time.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_SPD.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h \
- C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_UI_Menu.h
-../../Core/Inc/main.h:
+ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_I3C.h \
+ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_Time.h
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_UI_Menu.h:
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h:
 ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal.h:
 ../../Core/Inc/stm32h5xx_hal_conf.h:
 ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_rcc.h:
@@ -73,12 +70,8 @@ Application/User/Core/main.o: \
 ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart.h:
 ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_uart_ex.h:
 ../../Drivers/STM32H5xx_HAL_Driver/Inc/stm32h5xx_hal_exti.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_I3C.h:
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_DIMM_Detect.h:
 C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_Board.h:
 C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_LCD_DIMM.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_DIMM_Detect.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h:
+C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_I3C.h:
 C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_Time.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_SPD.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/nhd0420_i2c.h:
-C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_UI_Menu.h:

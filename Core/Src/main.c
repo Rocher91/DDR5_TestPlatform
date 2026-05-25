@@ -27,6 +27,7 @@
 #include "DDR5_Time.h"
 #include "DDR5_SPD.h"
 #include "nhd0420_i2c.h"
+#include "DDR5_UI_Menu.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -145,15 +146,9 @@ int main(void)
   DDR5_DIMM_Table_Init(&g_dimm_table);
   DDR5_DIMM_CheckAll(I2C1, &g_dimm_table);
   DDR5_LCD_DIMM_Init(&g_lcd, &g_dimm_table);
+  DDR5_UI_Menu_Init(&g_lcd, &g_dimm_table);
   HAL_Delay(2000);
 
-
-
-
-
-
-
-  __NOP();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -161,7 +156,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	 DDR5_LCD_DIMM_FSM_Update();
+	  DDR5_UI_Menu_FSM_Update();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

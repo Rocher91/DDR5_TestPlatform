@@ -6,3 +6,5 @@ C:/Users/Xavi/Documents/FW/DDR5_TestPlatform/STM32CubeIDE/Bsp/Inc/DDR5_board.h:3
 ../Bsp/src/DDR5_LCD_DIMM.c:45:6:DDR5_LCD_DIMM_Init	16	static
 ../Bsp/src/DDR5_LCD_DIMM.c:67:6:DDR5_LCD_DIMM_ShowPage	72	static
 ../Bsp/src/DDR5_LCD_DIMM.c:116:6:DDR5_LCD_DIMM_FSM_Update	8	static
+../Bsp/src/DDR5_LCD_DIMM.c:168:6:DDR5_LCD_DIMM_NextPage	8	static
+../Bsp/src/DDR5_LCD_DIMM.c:181:6:DDR5_LCD_DIMM_PreviousPage	8	static
